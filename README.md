@@ -22,3 +22,11 @@ Este repositório contém uma aplicação backend desenvolvida em C#, como foco 
 - Dockerfile -> Configuração do Docker
 - docker-compose.yml -> Orquestração com Docker Compose
 - CloudGames.API.sln -> Solução do projeto
+
+## Instruções
+SUBIR IMAGEM NO DOCKER
+
+docker build --no-cache -t user-api . && docker run -d -p 5000:80 user-api
+
+## Fluxo de Comunicação
+<img width="1000" height="1000" alt="User API Event Processing-2026-03-24-203716" src="https://github.com/user-attachments/assets/f64d7f66-c1e6-4d76-8daa-61ea479381cb" />
