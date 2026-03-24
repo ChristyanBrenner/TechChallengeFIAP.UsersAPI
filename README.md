@@ -10,6 +10,7 @@ Este repositório contém uma aplicação backend desenvolvida em C#, como foco 
 - Docker e Docker Compose
 - Testes com xUnit
 - Git e GitHub
+- Amazon SQS
 
 ## Estrutura do Projeto
 - Controllers/ -> Endpoints da API
