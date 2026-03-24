@@ -28,7 +28,7 @@ Este repositório contém uma aplicação backend desenvolvida em C#, como foco 
 SUBIR IMAGEM NO DOCKER
 - docker build --no-cache -t user-api . && docker run -d -p 5000:80 user-api
 
-SUBIR O REPOSITORIO NO Amazon Elastic Container Service
+SUBIR O REPOSITORIO NO AWS App Runner
 - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 451664151831.dkr.ecr.sa-east-1.amazonaws.com
 - docker tag user-api:latest 451664151831.dkr.ecr.sa-east-1.amazonaws.com/user-api:latest
 - docker push 451664151831.dkr.ecr.sa-east-1.amazonaws.com/user-api:latest
