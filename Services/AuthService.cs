@@ -1,7 +1,5 @@
-﻿using CloudGames.Contracts.Events;
-using Domain.DTOs;
+﻿using Domain.DTOs;
 using Domain.Entities;
-using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -18,14 +16,15 @@ namespace Services
         private readonly AppDbContext _ctx;
         private readonly JwtSettings _jwt;
         private readonly PasswordHasher<Usuario> _hasher;
-        private readonly IPublishEndpoint _publishEndpoint;
+        //private readonly IPublishEndpoint _publishEndpoint;
+        private readonly SqsService _sqsService;
 
-        public AuthService(AppDbContext ctx, IOptions<JwtSettings> jwtOptions, IPublishEndpoint publishEndpoint)
+        public AuthService(AppDbContext ctx, IOptions<JwtSettings> jwtOptions, SqsService sqsService)
         {
             _ctx = ctx;
             _jwt = jwtOptions.Value;
             _hasher = new PasswordHasher<Usuario>();
-            _publishEndpoint = publishEndpoint;
+            _sqsService = sqsService;
         }
 
         public async Task<Usuario> RegisterAsync(RegistroUsuarioDto dto)
@@ -49,11 +48,13 @@ namespace Services
             _ctx.Usuario.Add(usuario);
             await _ctx.SaveChangesAsync();
 
-            await _publishEndpoint.Publish(new UserCreatedEvent(
-            usuario.Id,
-            usuario.Email,
-            DateTime.UtcNow
-        ));
+            var evento = new
+            {
+                UsuarioId = usuario.Id,
+                UsuarioNome = usuario.Nome
+            };
+
+            await _sqsService.EnviarUsuarioCriadoAsync(evento);
 
             return usuario;
         }

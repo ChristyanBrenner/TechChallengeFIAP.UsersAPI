@@ -24,8 +24,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudGames.Contracts", "..\CloudGames.Contracts\CloudGames.Contracts\CloudGames.Contracts.csproj", "{8EC94221-2D2F-43DD-9A69-75BD3AC2740E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,10 +58,6 @@ Global
 		{5D07A3EB-F9DD-4B3F-B9F7-2B31B14F1450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D07A3EB-F9DD-4B3F-B9F7-2B31B14F1450}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D07A3EB-F9DD-4B3F-B9F7-2B31B14F1450}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EC94221-2D2F-43DD-9A69-75BD3AC2740E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EC94221-2D2F-43DD-9A69-75BD3AC2740E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EC94221-2D2F-43DD-9A69-75BD3AC2740E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EC94221-2D2F-43DD-9A69-75BD3AC2740E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

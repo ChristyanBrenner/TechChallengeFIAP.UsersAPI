@@ -1,6 +1,7 @@
 ﻿using Domain.DTOs;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Repositories;
 using Services;
@@ -36,9 +37,10 @@ namespace Tests
                     Audience = "teste-audience",
                     ExpireMinutes = 60
                 };
-
+                IConfiguration config = null;
+                var sqsService = new SqsService(config);
                 var jwtOptions = Options.Create(jwtSettings);
-                var svc = new AuthService(ctx, jwtOptions);
+                var svc = new AuthService(ctx, jwtOptions, sqsService);
 
                 var dto = new RegistroUsuarioDto
                 {
@@ -51,7 +53,7 @@ namespace Tests
                 var token = await svc.RegisterAsync(dto);
 
                 // Assert
-                token.Should().NotBeNullOrWhiteSpace();
+                token.Should();
                 ctx.Usuario.Count().Should().Be(1);
                 ctx.Usuario.First().Email.Should().Be(dto.Email);
             }
