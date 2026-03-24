@@ -30,7 +30,9 @@ SUBIR IMAGEM NO DOCKER
 
 SUBIR O REPOSITORIO NO AWS App Runner
 - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 451664151831.dkr.ecr.sa-east-1.amazonaws.com
+  
 - docker tag user-api:latest 451664151831.dkr.ecr.sa-east-1.amazonaws.com/user-api:latest
+  
 - docker push 451664151831.dkr.ecr.sa-east-1.amazonaws.com/user-api:latest
 
 ## Fluxo de Comunicação
