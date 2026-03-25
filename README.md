@@ -25,7 +25,7 @@ Este repositório contém uma aplicação backend desenvolvida em C#, como foco 
 - CloudGames.API.sln -> Solução do projeto
 
 ## Instruções
-SUBIR IMAGEM NO DOCKER
+SUBIR IMAGEM NO DOCKER LOCAL
 - docker build --no-cache -t user-api . && docker run -d -p 5000:80 user-api
 
 SUBIR O REPOSITORIO NO AWS App Runner
